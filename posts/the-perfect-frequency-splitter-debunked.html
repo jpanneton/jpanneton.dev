@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Jérémi Panneton | The perfect frequency splitter debunked</title>
+  <meta name="description" content="A quick dive in the world of frequency splitters.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="The perfect frequency splitter debunked">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jpanneton.dev/posts/the-perfect-frequency-splitter-debunked">
+  <meta property="og:description" content="A quick dive in the world of frequency splitters.">
+  <meta property="og:site_name" content="Jérémi Panneton">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://jpanneton.dev/posts/the-perfect-frequency-splitter-debunked">
+  <meta name="twitter:title" content="The perfect frequency splitter debunked">
+  <meta name="twitter:description" content="A quick dive in the world of frequency splitters.">
+
+  
+    <meta property="og:image" content="https://jpanneton.dev/assets/thumbnail-c8d7917e98198c3ed8bdb488b79da90e101ba890db97e44d7da78cccf91a5674.png">
+    <meta name="twitter:image" content="https://jpanneton.dev/assets/thumbnail-c8d7917e98198c3ed8bdb488b79da90e101ba890db97e44d7da78cccf91a5674.png">
+  
+
+  <link href="https://jpanneton.dev/feed.xml" type="application/rss+xml" rel="alternate" title="Jérémi Panneton Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-light-eaabc9e56e60c3d341670b4e93bb1935111dc6eebd15b6268b9e96c04121bc16.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-light-e7abfbe2a61382bdd2d1356634b305fa4e4de31c450f03c8d8ca117658a433c0.png">
+      <link rel="stylesheet" type="text/css" title="light" id="light" href="/assets/light-615e945d8bab5cfdf624d9f42cfabe56a4495dbdabf0d07e2dc9b2b31284ef8b.css">
+      <link rel="stylesheet" type="text/css" title="dark" id="dark" href="/assets/dark-c5f38bd3509677b442a2f552a1e5804bde2701a008a64e5098587446dd3f4f45.css" disabled="true">
+    
+
+  
+
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQM88Y7P76"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CQM88Y7P76');
+    </script>
+  
+
+  
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$']],
+          processEscapes: true
+        }
+      });
+    </script>
+  
+
+  <script src="/assets/fouc-3215b14f5b11fc2cdac24588ef77b7fa42dd404d1921313b1c3081dd265f0d45.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav">
+  <a href="/" class="header-logo" title="Jérémi Panneton">Jérémi Panneton</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-f51ae3ae83afc34401fc09f4f3c353c9289ff6420d34043828bae94e812118a3.svg#icon-about" xlink:href="/assets/about-f51ae3ae83afc34401fc09f4f3c353c9289ff6420d34043828bae94e812118a3.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://soundcloud.com/voidkll" rel="noreferrer noopener" target="_blank" title="SoundCloud">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-soundcloud">
+  <use href="/assets/soundcloud-7650ad93c41223125c3bed3e34d91cb00b9732962ea16d7607c8cc7098eca0da.svg#icon-soundcloud" xlink:href="/assets/soundcloud-7650ad93c41223125c3bed3e34d91cb00b9732962ea16d7607c8cc7098eca0da.svg#icon-soundcloud"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.youtube.com/@jpanneton-dev" rel="noreferrer noopener" target="_blank" title="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-youtube">
+  <use href="/assets/youtube-1c334eb807e725c412484a46c7a2b8f69496e1805499acaa2251a740b9a1b047.svg#icon-youtube" xlink:href="/assets/youtube-1c334eb807e725c412484a46c7a2b8f69496e1805499acaa2251a740b9a1b047.svg#icon-youtube"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://twitter.com/jpanneton_dev" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-1d285c6a30cc4182f76d69858a8dbda629f732e35a18e2c11293f6f7d0f831bb.svg#icon-twitter" xlink:href="/assets/twitter-1d285c6a30cc4182f76d69858a8dbda629f732e35a18e2c11293f6f7d0f831bb.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/jpanneton" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-78a568ac200da8c6487d59b677fc0ba9fec0065a758fc11b3e8cce94c8d1002c.svg#icon-github" xlink:href="/assets/github-78a568ac200da8c6487d59b677fc0ba9fec0065a758fc11b3e8cce94c8d1002c.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/jeremipanneton" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-59840cca0989324dae181cacdf6e38d245e09703fd487bc9bc1afe03363f187a.svg#icon-linkedin" xlink:href="/assets/linkedin-59840cca0989324dae181cacdf6e38d245e09703fd487bc9bc1afe03363f187a.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-02182ec6142fc09f65b5d131af905f81cd458b23654bdbf8831cc094bcd3e4ca.svg#icon-rss" xlink:href="/assets/rss-02182ec6142fc09f65b5d131af905f81cd458b23654bdbf8831cc094bcd3e4ca.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a onclick="toggle()" title="Toggle Theme">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-theme">
+  <use href="/assets/theme-f33b7ac2214368989217af548680d4911172165e5ced5d9a68c349a04d234ef9.svg#icon-theme" xlink:href="/assets/theme-f33b7ac2214368989217af548680d4911172165e5ced5d9a68c349a04d234ef9.svg#icon-theme"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <ul class="header-tags">
+    
+    
+
+    
+      
+
+      
+      
+        <li><a href="/tag/audio">Audio</a></li>
+    
+  </ul>
+
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>The perfect frequency splitter debunked</h1>
+            <p>A quick dive in the world of frequency splitters.</p>
+            <div class="article-list-footer">
+  <span class="article-list-date">
+    May 5, 2022
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      18 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/audio" title="See all posts with tag 'Audio'">Audio</a>
+    
+  </div>
+</div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="introduction">Introduction</h2>
+
+<p>A few years ago, Multiplier posted a <a href="https://www.youtube.com/watch?v=xDlZjmxWChM">video</a> on YouTube that grasped my attention quite a bit. In this video, he explains a technique that allows splitting the frequency spectrum into several bands without altering the phase of the combined output, meaning that when all the dry bands are played together, you get exactly the original signal back. Even though it’s true, this technique simply doesn’t work when processing the bands individually (i.e. the whole point of a frequency splitter). In fact, the higher bands contain a bunch of unwanted frequencies that are expected to be cut at the crossover points. This makes it impossible to accurately solo and process a band. Since Multiplier is quite big on YouTube and people believe what he says, I figured it would be relevant to shed some light on the subject. In this blog post, I will visually explain why it doesn’t work and then offer a working solution. Note that I will only address a 2-band frequency splitter for the sake of simplicity.</p>
+
+<h2 id="the-naive-frequency-splitter">The naive frequency splitter</h2>
+
+<p>When implementing a frequency splitter ($n$-band), this is the first approach that usually comes to mind:</p>
+
+<ol>
+  <li>Create $n$ parallel chains of your signal</li>
+  <li>Band-pass each chain using a low pass and/or a high pass filter</li>
+  <li>Map the crossover frequency of the filters to some macros</li>
+</ol>
+
+<p>The problem with this approach is that crossovers don’t have a flat amplitude response when using traditional filters (usually Butterworth). In fact, the amplitude response of a Butterworth filter is -3 dB at the cutoff frequency, which adds up to +3 dB when used in a crossover.</p>
+
+<p><a href="/assets/posts/1-frequency-splitter/1-butterworth-f7bf507ebfec2883df03224d10176fab5e88f3c87d311fa76777c3bce5e1ae47.svg">
+  <img src="/assets/posts/1-frequency-splitter/1-butterworth-f7bf507ebfec2883df03224d10176fab5e88f3c87d311fa76777c3bce5e1ae47.svg" alt="Butterworth crossover" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/1-butterworth-f7bf507ebfec2883df03224d10176fab5e88f3c87d311fa76777c3bce5e1ae47.svg" data-zooming-width="800" data-zooming-height="800" />
+</a></p>
+
+<details open="true">
+  <summary>Decibel primer</summary>
+  <div class="note">
+
+    <p>To understand why it’s adding up to +3 dB, we must understand how decibels work. On its own, a decibel (or dB) is simply a logarithmic ratio between two values. More specifically, a 10 dB increase means that it’s 10 times louder, a 20 dB increase means that it’s 100 times louder, and so on (exponential). This can be calculated with the relative powers $P_1$ and $P_2$ of a sound (in watts), from which we calculate the loudness ratio $P_1 / P_2$:</p>
+
+    <script type="math/tex; mode=display">dB = 10 * log_{10}\left(\frac{P_1}{P_2}\right)</script>
+
+    <p>In the physical world, dB is most often used to express sound pressure level (SPL). This is the unit used by noise level charts (e.g. “a lawnmower is 90 dB” type of chart). SPL can be calculated using the following formula, where $p$ is a sound pressure in pascals (Pa) and $p_0$ the reference sound pressure (usual $20\mu$ Pa, which is the lowest hearing threshold of a young and healthy ear):</p>
+
+    <script type="math/tex; mode=display">\begin{align}
+  dB(SPL) = 10 * log_{10}\left(\frac{p^2}{p_0^2}\right) \\
+          = 20 * log_{10}\left(\frac{p}{p_0}\right)
+  \end{align}</script>
+
+    <p>Using this formula, we can find that a sound which is twice the amplitude of the reference will yield a +6 dB SPL increment (keep that in mind for later):</p>
+
+    <script type="math/tex; mode=display">20 * log_{10}(2) \approx 6.021</script>
+
+    <blockquote>
+      <p>“While every 6 dB SPL represents a doubling of amplitude, a non-exact rule-of-thumb is that every 10 dB increase is a doubling of perceived loudness” <cite><a href="http://www.sengpielaudio.com/calculator-levelchange.htm">Source</a></cite></p>
+    </blockquote>
+
+    <p>In the digital audio world, dB usually refers to dBFS, or decibels relative to full scale. As opposed to SPL, where 0 dB corresponds to a sound pressure level that is barely audible to the average human and higher values (positive) correspond to more loudness, dBFS measures downward. In fact, 0 dBFS corresponds to the maximum possible digital level and lower values (negative) correspond to weaker amplitudes. When a sound of more than 0 dBFS gets played back, clipping occurs. Meters in your DAW are displaying headroom (negative values) in dBFS. It can be calculated as follow, where $R$ is a normalized ratio between 0 and 1 (unlike the SPL formula):</p>
+
+    <script type="math/tex; mode=display">dBFS = 20 * log_{10}(R)</script>
+
+    <p>Just like SPL, a +6 dBFS increase means that the amplitude of the signal has doubled. When using two Butterworth filters to build a crossover, the amplitude response at the crossover frequency will be -3 dB, which is the crossover point of both filters. Since they both share the same amplitude response at this specific frequency, the combined amplitude response will double. Knowing that doubling the amplitude results in a +6 dB increase (as discussed above), the combined amplitude response will be +3 dB (-3 + 6).</p>
+
+  </div>
+</details>
+
+<h2 id="the-standard-frequency-splitter">The standard frequency splitter</h2>
+
+<p>Nowadays, most frequency splitters are using Linkwitz–Riley filters. Unlike traditional Butterworth filters, their combined frequency response is perfectly flat when used in a crossover. They can simply be obtained by cascading two traditional Butterworth filters. By doing so, the amplitude response at the crossover frequency becomes -6 dB instead of -3 dB, which results in a combined amplitude response of 0 dB at the crossover point.</p>
+
+<p><a href="/assets/posts/1-frequency-splitter/2-linkwitz-riley-7924009a3ba324e894ddcc9e7f592a292a8f19763a4e36bc8c733b7a14a0a7ae.svg">
+  <img src="/assets/posts/1-frequency-splitter/2-linkwitz-riley-7924009a3ba324e894ddcc9e7f592a292a8f19763a4e36bc8c733b7a14a0a7ae.svg" alt="Linkwitz-Riley crossover" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/2-linkwitz-riley-7924009a3ba324e894ddcc9e7f592a292a8f19763a4e36bc8c733b7a14a0a7ae.svg" data-zooming-width="800" data-zooming-height="800" />
+</a></p>
+
+<p>In other words, the crossover behaves like an all-pass filter, meaning that only the phase response is (smoothly) changed. When using filters with more aggressive slopes, the phase change can be heard by simply duplicating the dry frequency splitter a few times. However, in practice, this should be a non-issue for most people since processing is being applied to each band and the processing often messes with the phase itself. Also, when using a single frequency splitter at a time (general use case), this phase change can’t be heard by the untrained ear.</p>
+
+<p>There are a lot of people arguing online that such a phase shift will wreck your mix. Yet, most are proposing solutions such as the one discussed in this post (the Multiplier splitter), which are even worst. There are indeed some phase implications of using Linkwitz-Riley crossovers (which will be discussed in another blog post), but the consensus is that you shouldn’t care. They are an industry standard and have been used for decades for this exact purpose. For mastering or phase-sensitive work, plugins will usually opt for more CPU-intensive methods such as linear phase filters to preserve phase as much as possible, as we will see later in this post.</p>
+
+<p>Here are some frequency splitting VST plugins that are using Linkwitz–Riley filters:</p>
+
+<ul>
+  <li><a href="https://www.tbproaudio.de/products/isol8">ISOL8</a> (free)</li>
+  <li><a href="https://klevgrand.se/products/gaffel">Gaffel</a> (paid)</li>
+  <li><a href="https://kilohearts.com/products/multipass">Multipass</a> (paid)</li>
+</ul>
+
+<p>Here are other various plugins that are using Linkwitz–Riley filters:</p>
+
+<ul>
+  <li><a href="https://www.cableguys.com/shaperbox.html">ShaperBox</a></li>
+  <li>Ableton’s Multiband Dynamics</li>
+</ul>
+
+<p>Since most low-pass and high-pass filters are Butterworth, you can also build your own Linkwitz-Riley frequency splitter by using two identical low-pass filters and two identical high-pass filters chained one after the other. You can safely assume that it works with FabFilter Pro-Q in Natural Phase mode and Ableton’s EQ Eight (tested). Here are some racks I made using EQ Eight:</p>
+
+<ul>
+  <li><a href="https://jpanneton.dev/download/Frequency Splitter (LR24, 2-band).adg">Linkwitz-Riley, 24 dB slope, 2-band</a></li>
+  <li><a href="https://jpanneton.dev/download/Frequency Splitter (LR24, 3-band).adg">Linkwitz-Riley, 24 dB slope, 3-band</a></li>
+  <li><a href="https://jpanneton.dev/download/Frequency Splitter (LR96, 2-band).adg">Linkwitz-Riley, 96 dB slope, 2-band</a></li>
+  <li><a href="https://jpanneton.dev/download/Frequency Splitter (LR96, 3-band).adg">Linkwitz-Riley, 96 dB slope, 3-band</a></li>
+</ul>
+
+<p>Otherwise, you can implement your own splitter using any EQ by following the next section, and analyze it using <a href="https://bertom.gumroad.com/l/eq-curve-analyzer">Bertom’s EQ Curve Analyzer</a> to make sure it works as intended (perfectly flat amplitude response).</p>
+
+<details open="true">
+  <summary>Linkwitz-Riley design</summary>
+  <div class="note">
+
+    <p>If you want to design a Linkwitz-Riley frequency splitter in your DAW, you can follow the following schemas.</p>
+
+    <div class="image-group">
+    <div>
+      <figure>
+        <figcaption>2-band design</figcaption>
+        <a href="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (2-band)-d508cd8082af84d5141e2cb545e5fce3ba297a921bad358204215c740ec28260.svg">
+  <img src="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (2-band)-d508cd8082af84d5141e2cb545e5fce3ba297a921bad358204215c740ec28260.svg" alt="2-band splitter design" class="zooming" width="100%" data-rjs="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (2-band)-d508cd8082af84d5141e2cb545e5fce3ba297a921bad358204215c740ec28260.svg" data-zooming-width="1322" data-zooming-height="422" />
+</a>
+
+      </figure>
+    </div>
+  </div>
+
+    <p>For 3-band frequency splitters, it gets a little more complicated. We must make sure to align the phase of each band. To do so, we must redundantly apply the filtering from other bands. The additional processing behaves just like an all-pass filter.</p>
+
+    <div class="image-group">
+    <div>
+      <figure>
+        <figcaption>3-band design</figcaption>
+        <a href="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (3-band)-c1c1f0c381dbb2df27436894979d87a5ecede3a78b1bdd00eb00a80ab52bae12.svg">
+  <img src="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (3-band)-c1c1f0c381dbb2df27436894979d87a5ecede3a78b1bdd00eb00a80ab52bae12.svg" alt="3-band splitter design" class="zooming" width="100%" data-rjs="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (3-band)-c1c1f0c381dbb2df27436894979d87a5ecede3a78b1bdd00eb00a80ab52bae12.svg" data-zooming-width="1962" data-zooming-height="742" />
+</a>
+
+      </figure>
+    </div>
+  </div>
+
+    <p>For 3+ band designs, the implementation becomes increasingly complex when done from scratch (as you might have guessed). However, it can be easily generalized by reusing lower band splitters. Since this all comes down to syncing the phase response of each band so that when they are combined back together, their respective frequencies align properly, we can implement the 3-band design using the 2-band design exclusively.</p>
+
+    <div class="image-group">
+    <div>
+      <figure>
+        <figcaption>3-band design</figcaption>
+        <a href="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (n-band)-06d5d8b1f4aef4337bc64b1ed052089be50c9cd6bb79835921f891a57ebe6fb8.svg">
+  <img src="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (n-band)-06d5d8b1f4aef4337bc64b1ed052089be50c9cd6bb79835921f891a57ebe6fb8.svg" alt="n-band splitter design" class="zooming" width="100%" data-rjs="/assets/posts/1-frequency-splitter/Linkwitz-Riley Splitter (n-band)-06d5d8b1f4aef4337bc64b1ed052089be50c9cd6bb79835921f891a57ebe6fb8.svg" data-zooming-width="1322" data-zooming-height="602" />
+</a>
+
+      </figure>
+    </div>
+  </div>
+
+    <p>As you can see, nested splitters can be used, but not blindly. The important part is to apply nested splitters on every sibling band to sync their phase. Note that we are ditching the splitted outputs entirely in the phase-corrected bands. Instead, we are running the splitter serially (just like a normal FX), since we are only interested in the phase side effects and not the splitting per se. This approach is a generalization of the above and can be used to implement a $n$-band splitter more easily.</p>
+
+    <p>Finally, each Linkwitz-Riley filter can be designed using Butterworth filters as follow:</p>
+
+    <p><a href="/assets/posts/1-frequency-splitter/Linkwitz-Riley Butterworth-48ce25e04cb3c557e79ef3c467e1599e4bdb4f80a99eeafabbbf19ceb5610e97.svg">
+  <img src="/assets/posts/1-frequency-splitter/Linkwitz-Riley Butterworth-48ce25e04cb3c557e79ef3c467e1599e4bdb4f80a99eeafabbbf19ceb5610e97.svg" alt="Linkwitz-Riley filter design" class="zooming" width="100%" data-rjs="/assets/posts/1-frequency-splitter/Linkwitz-Riley Butterworth-48ce25e04cb3c557e79ef3c467e1599e4bdb4f80a99eeafabbbf19ceb5610e97.svg" data-zooming-width="1162" data-zooming-height="662" />
+</a></p>
+
+    <p>Regarding Butterworth filters, their order determines how steep they are, or how quickly their amplitude decreases per octave. A first-order Butterworth filter’s response rolls off at −6 dB per octave. This means that a second-order filter decreases at −12 dB per octave, a third-order at −18 dB, and so on. Since Linkwitz-Riley filters are constructed by cascading two Butterworth filters of the same order, the resulting order of a Linkwitz-Riley filter will be twice the order of its underlying Butterworth.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align: center">Butterworth Order</th>
+          <th style="text-align: center">Butterworth Slope</th>
+          <th style="text-align: center">Linkwitz-Riley Order</th>
+          <th style="text-align: center">Linkwitz-Riley Slope</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">−6 dB / octave</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">−12 dB / octave</td>
+        </tr>
+        <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">−12 dB / octave</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">−24 dB / octave</td>
+        </tr>
+        <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">−24 dB / octave</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">−48 dB / octave</td>
+        </tr>
+        <tr>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">−48 dB / octave</td>
+          <td style="text-align: center">16</td>
+          <td style="text-align: center">−96 dB / octave</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>If you want to learn more about Linkwitz-Riley filters, stay tuned for my next blog post.</p>
+
+  </div>
+</details>
+
+<h2 id="the-phase-correct-frequency-splitter">The “phase correct” frequency splitter</h2>
+
+<p>In his video, Multiplier demonstrated that using a naive frequency splitter was messing up the phase. As a result, he wasn’t able to exactly reconstruct the original signal back. Instead, the dry frequency splitter was generating a new signal that was sounding the same as the original but had an altered phase. Then, he claimed that to fix this “issue”, you could use a phase cancellation technique to perform the frequency splitting instead.</p>
+
+<details open="true">
+  <summary>Phase primer</summary>
+  <div class="note">
+
+    <p>Simply put, <em>phase</em> is the position of a point within a periodic waveform at a given time. It is usually measured in radians (or degrees), where 2π (or 360°) represents a full cycle. On its own, the absolute phase of a signal is usually irrelevant. What matters is the phase difference between two sound waves (also called <em>phase shift</em>). It’s the position of a signal in time in relation to another. In fact, when adding two different sound waves, the result will highly depend on the phase difference between the two signals:</p>
+
+    <p><a href="/assets/posts/1-frequency-splitter/3-phase-interference-5f2cf71eaa5368bf254459988362e75e0ee4e716646108797afb9e9d4e1a4d4f.svg">
+  <img src="/assets/posts/1-frequency-splitter/3-phase-interference-5f2cf71eaa5368bf254459988362e75e0ee4e716646108797afb9e9d4e1a4d4f.svg" alt="Phase interference" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/3-phase-interference-5f2cf71eaa5368bf254459988362e75e0ee4e716646108797afb9e9d4e1a4d4f.svg" data-zooming-width="800" data-zooming-height="560" />
+</a></p>
+
+    <p>As you can see, when two identical signals get added together, fun things can happen when messing with the phase of one of them. When the signals are “in phase”, the resulting signal is the sum of both (i.e. double the amplitude). This is called “constructive interference”. However, when the signals are “out of phase”, the resulting signal is the difference of both (i.e. null amplitude, since they are canceling each other out). This is called “destructive interference”.</p>
+
+    <p>Destructive interference is usually what is causing problems in your mixes and happens when some elements are canceling each other out. Here are some potential sources of destructive interference that you may face:</p>
+
+    <ul>
+      <li>Mono downmix when the left and right channels are canceling each other out (hence the importance of mono mixing)</li>
+      <li>Instrument captured with two or more mics placed at different distances</li>
+    </ul>
+
+    <p>I won’t go into much more detail, but this should allow you to understand how the “phase correct” frequency splitter makes clever use of destructive interference to cancel frequential information out, as you will read below.</p>
+
+  </div>
+</details>
+
+<p>The gist of it is simple: instead of using a low-pass filter and a high-pass filter to build the crossover, you use either one of them on both bands, invert the phase on the second band and use the result to cancel the dry signal. In other words, you filter the first band normally, and take the remainder for the second band instead of using a crossover. In theory, it allows to extract the information that was cut out by the filter exactly, which allows to reconstruct the original dry signal back perfectly. However, in practice, it fails terribly when bands are used in isolation.</p>
+
+<p>Let’s suppose our signal consists of two basic sine waves of different frequencies:</p>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/4-low-frequency-326f030a9b649036c14b5cbe8624e5a23faca0a0780faf891174a54a6b6ae9e5.svg">
+  <img src="/assets/posts/1-frequency-splitter/4-low-frequency-326f030a9b649036c14b5cbe8624e5a23faca0a0780faf891174a54a6b6ae9e5.svg" alt="Low frequency sine" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/4-low-frequency-326f030a9b649036c14b5cbe8624e5a23faca0a0780faf891174a54a6b6ae9e5.svg" data-zooming-width="800" data-zooming-height="400" />
+</a>
+
+      <figcaption>Low frequency</figcaption>
+    </figure>
+  </div>
+  <div class="image-separator">
+    <b>+</b>
+  </div>
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/5-high-frequency-f12cc6d7197d069ddcbac6accf408fc2c5596a932c799e237887012feae60c3d.svg">
+  <img src="/assets/posts/1-frequency-splitter/5-high-frequency-f12cc6d7197d069ddcbac6accf408fc2c5596a932c799e237887012feae60c3d.svg" alt="High frequency sine" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/5-high-frequency-f12cc6d7197d069ddcbac6accf408fc2c5596a932c799e237887012feae60c3d.svg" data-zooming-width="800" data-zooming-height="400" />
+</a>
+
+      <figcaption>High frequency</figcaption>
+    </figure>
+  </div>
+</div>
+
+<p><a href="/assets/posts/1-frequency-splitter/6-combined-signal-d4965f0a09a33c71345c91bf8fe031608f03bd227f8e3bd0cd5fba506ad804d9.svg">
+  <img src="/assets/posts/1-frequency-splitter/6-combined-signal-d4965f0a09a33c71345c91bf8fe031608f03bd227f8e3bd0cd5fba506ad804d9.svg" alt="Combined signal" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/6-combined-signal-d4965f0a09a33c71345c91bf8fe031608f03bd227f8e3bd0cd5fba506ad804d9.svg" data-zooming-width="800" data-zooming-height="560" />
+</a></p>
+
+<p>Our goal is to split this signal and get the original sine waves back. To do so, we try the above logic and apply a low-pass filter to the signal. Because we are using low latency filters, we can expect the phase of the resulting sine wave to be a bit offset compared to the original. In fact, the closer the original signal is to the crossover frequency and the steeper the slope of the low-pass filter is, the worst the phase shift becomes.</p>
+
+<p><a href="/assets/posts/1-frequency-splitter/7-phase-shift-f87a9a77ec4375159ec71432fcd8e4766e1d97808c4527917ffeb3a83b3d2760.svg">
+  <img src="/assets/posts/1-frequency-splitter/7-phase-shift-f87a9a77ec4375159ec71432fcd8e4766e1d97808c4527917ffeb3a83b3d2760.svg" alt="Low frequency phase shift" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/7-phase-shift-f87a9a77ec4375159ec71432fcd8e4766e1d97808c4527917ffeb3a83b3d2760.svg" data-zooming-width="800" data-zooming-height="400" />
+</a></p>
+
+<p>Now, we simply need to subtract the filtered sine wave from the dry signal to recover the remainder. In theory, we should obtain the original high frequency.</p>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/9-phase-cancel-non-linear-625150437d3c1874b6bad5a2f0e8ff3a1220786fc256268e8e7c6e6d4aadaff8.svg">
+  <img src="/assets/posts/1-frequency-splitter/9-phase-cancel-non-linear-625150437d3c1874b6bad5a2f0e8ff3a1220786fc256268e8e7c6e6d4aadaff8.svg" alt="Non-linear phase cancellation result" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/9-phase-cancel-non-linear-625150437d3c1874b6bad5a2f0e8ff3a1220786fc256268e8e7c6e6d4aadaff8.svg" data-zooming-width="800" data-zooming-height="560" />
+</a>
+
+      <figcaption>Actual (non-linear phase)</figcaption>
+    </figure>
+  </div>
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/8-phase-cancel-linear-4dc797bcd1003cdebf6ec91e4d7129d54402945e18e02055c0d96bd4bcbdcfb6.svg">
+  <img src="/assets/posts/1-frequency-splitter/8-phase-cancel-linear-4dc797bcd1003cdebf6ec91e4d7129d54402945e18e02055c0d96bd4bcbdcfb6.svg" alt="Linear phase cancellation result" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/8-phase-cancel-linear-4dc797bcd1003cdebf6ec91e4d7129d54402945e18e02055c0d96bd4bcbdcfb6.svg" data-zooming-width="800" data-zooming-height="560" />
+</a>
+
+      <figcaption>Expected (linear phase)</figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>However, since the phase of the dry signal is no longer in sync with the filtered sine wave, a new frequency is introduced:</p>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/11-phase-cancel-error-non-linear-94f809378ed89760927374b7e47a170ab9d2c686db071830a51876b9bd24192a.svg">
+  <img src="/assets/posts/1-frequency-splitter/11-phase-cancel-error-non-linear-94f809378ed89760927374b7e47a170ab9d2c686db071830a51876b9bd24192a.svg" alt="Non-linear phase cancellation error" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/11-phase-cancel-error-non-linear-94f809378ed89760927374b7e47a170ab9d2c686db071830a51876b9bd24192a.svg" data-zooming-width="800" data-zooming-height="560" />
+</a>
+
+      <figcaption>Actual (non-linear phase)</figcaption>
+    </figure>
+  </div>
+  <div>
+    <figure>
+      <a href="/assets/posts/1-frequency-splitter/10-phase-cancel-error-linear-d2a15cd909fad82ced08e981fa3cb9e2c059531e1a66307a544c2f1b6f47b0cc.svg">
+  <img src="/assets/posts/1-frequency-splitter/10-phase-cancel-error-linear-d2a15cd909fad82ced08e981fa3cb9e2c059531e1a66307a544c2f1b6f47b0cc.svg" alt="Linear phase cancellation error" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/10-phase-cancel-error-linear-d2a15cd909fad82ced08e981fa3cb9e2c059531e1a66307a544c2f1b6f47b0cc.svg" data-zooming-width="800" data-zooming-height="560" />
+</a>
+
+      <figcaption>Expected (linear phase)</figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>As you can see, this “new” frequency looks quite familiar: it’s a phase-shifted version of the green sine wave with a weaker amplitude. More exactly, it’s the direct difference between the original green sine wave and its filtered counterpart (phase shifted).</p>
+
+<p><a href="/assets/posts/1-frequency-splitter/12-phase-shift-error-7636d44e508dca55af8eec7908de9f250c9ddde4df8500ab21b53732e26f5dd0.svg">
+  <img src="/assets/posts/1-frequency-splitter/12-phase-shift-error-7636d44e508dca55af8eec7908de9f250c9ddde4df8500ab21b53732e26f5dd0.svg" alt="Phase shift error" class="zooming" width="50%" data-rjs="/assets/posts/1-frequency-splitter/12-phase-shift-error-7636d44e508dca55af8eec7908de9f250c9ddde4df8500ab21b53732e26f5dd0.svg" data-zooming-width="800" data-zooming-height="400" />
+</a></p>
+
+<p>In short, this means that phase-canceled bands will always contain some of the frequencies that were used to cancel them, and their amplitude will directly depend on the filters being used (steeper filter results in a greater phase shift).</p>
+
+<p>This is of course a theoretical example with only two sine waves involved, but you can see how many unwanted frequencies might be introduced in the phase canceled band of Multiplier’s “phase correct” frequency splitter. This is audible and measurable just by soloing the said band. Sure, you can reconstruct the original signal that way, but the band doesn’t hold the expected information in isolation, which defeats the whole purpose of using a frequency splitter to process bands independently.</p>
+
+<p>Let’s take a look at a white noise example. For the sake of the example, I have used Linkwitz-Riley filters (24 dB slope) to perform the filtering instead of single Butterworth filters (like in the original design). That way, expectations are more accurate, and the underlying issue is emphasized (two phase shifts instead of one). The crossover frequency is 1000 Hz.</p>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <figcaption>White Noise (full range)</figcaption>
+      <a href="/assets/posts/1-frequency-splitter/White Noise (full)-d425f69a719e5ac49a23d36c0ba6cd950ad0400d7b24715cdd25147d9d26e385.png">
+  <img src="/assets/posts/1-frequency-splitter/White Noise (full)-d425f69a719e5ac49a23d36c0ba6cd950ad0400d7b24715cdd25147d9d26e385.png" alt="White Noise (full range)" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/White Noise (full)-d425f69a719e5ac49a23d36c0ba6cd950ad0400d7b24715cdd25147d9d26e385.png" data-zooming-width="1510" data-zooming-height="880" />
+</a>
+
+      <div class="audio-player">
+  <audio hidden="">
+    <source src="/assets/posts/1-frequency-splitter/White Noise (full)-b381cd8f56a16f28131801760b24fc27b9bfefd027cf28094b037bc05d39e175.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-player-button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-speaker">
+  <use href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker" xlink:href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker"></use>
+</svg>
+
+  </div>
+  <div class="audio-player-spinner"></div>
+</div>
+
+    </figure>
+  </div>
+</div>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <figcaption>Expected low pass (Linkwitz-Riley)</figcaption>
+      <a href="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png">
+  <img src="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png" alt="White Noise (low pass)" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png" data-zooming-width="1510" data-zooming-height="880" />
+</a>
+
+      <div class="audio-player">
+  <audio hidden="">
+    <source src="/assets/posts/1-frequency-splitter/White Noise (low pass)-90b02c4635180491bf319ee73005f24e9ff7894319daf469d5dab7f8d82424df.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-player-button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-speaker">
+  <use href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker" xlink:href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker"></use>
+</svg>
+
+  </div>
+  <div class="audio-player-spinner"></div>
+</div>
+
+    </figure>
+  </div>
+  <div>
+    <figure>
+      <figcaption>Expected high pass (Linkwitz-Riley)</figcaption>
+      <a href="/assets/posts/1-frequency-splitter/White Noise (high pass)-79bde5145fc38848f82bc367f922048e9275ea6f9ef4aa341c0630245602817e.png">
+  <img src="/assets/posts/1-frequency-splitter/White Noise (high pass)-79bde5145fc38848f82bc367f922048e9275ea6f9ef4aa341c0630245602817e.png" alt="White Noise (high pass)" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/White Noise (high pass)-79bde5145fc38848f82bc367f922048e9275ea6f9ef4aa341c0630245602817e.png" data-zooming-width="1510" data-zooming-height="880" />
+</a>
+
+      <div class="audio-player">
+  <audio hidden="">
+    <source src="/assets/posts/1-frequency-splitter/White Noise (high pass)-fd70f6f84159019c1debf54fff920c8a192b2354c53395aee4338950ca88f903.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-player-button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-speaker">
+  <use href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker" xlink:href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker"></use>
+</svg>
+
+  </div>
+  <div class="audio-player-spinner"></div>
+</div>
+
+    </figure>
+  </div>
+</div>
+
+<div class="image-group">
+  <div>
+    <figure>
+      <figcaption>Actual low pass (Linkwitz-Riley)</figcaption>
+      <a href="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png">
+  <img src="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png" alt="White Noise (low pass)" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/White Noise (low pass)-2ee973eb5bac4d42abdc91ab02ad54b7215fb82f4a6eb17165d36d9e0bb1da76.png" data-zooming-width="1510" data-zooming-height="880" />
+</a>
+
+      <div class="audio-player">
+  <audio hidden="">
+    <source src="/assets/posts/1-frequency-splitter/White Noise (low pass)-90b02c4635180491bf319ee73005f24e9ff7894319daf469d5dab7f8d82424df.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-player-button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-speaker">
+  <use href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker" xlink:href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker"></use>
+</svg>
+
+  </div>
+  <div class="audio-player-spinner"></div>
+</div>
+
+    </figure>
+  </div>
+  <div>
+    <figure>
+      <figcaption>Actual "high pass" (phase canceled)</figcaption>
+      <a href="/assets/posts/1-frequency-splitter/White Noise (phase canceled)-3c4d8248def2d08026245010bc36db1e7855ea9447b7c438dcfd7df21a1a3a82.png">
+  <img src="/assets/posts/1-frequency-splitter/White Noise (phase canceled)-3c4d8248def2d08026245010bc36db1e7855ea9447b7c438dcfd7df21a1a3a82.png" alt="White Noise (phase canceled)" class="zooming" width="" data-rjs="/assets/posts/1-frequency-splitter/White Noise (phase canceled)-3c4d8248def2d08026245010bc36db1e7855ea9447b7c438dcfd7df21a1a3a82.png" data-zooming-width="1510" data-zooming-height="880" />
+</a>
+
+      <div class="audio-player">
+  <audio hidden="">
+    <source src="/assets/posts/1-frequency-splitter/White Noise (phase canceled)-b62162d06c4e62657cc8f2b4645cb73cd2c33777fd2071f782085a6189e4aad1.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <div class="audio-player-button">
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-speaker">
+  <use href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker" xlink:href="/assets/speaker-e71f7d184306f34c6a3f186e31368cdf4386e784696570ae4e2393fc8e651848.svg#icon-speaker"></use>
+</svg>
+
+  </div>
+  <div class="audio-player-spinner"></div>
+</div>
+
+    </figure>
+  </div>
+</div>
+
+<p>As you can see (and hear), the phase canceled high band is not even remotely close to its expected counterpart. White noise is the worst possible case since it contains all the frequencies in the spectrum, but the result will be similar no matter what. Here’s the expected frequency response of each high pass filter slope available in FabFilter Pro-Q 3 (in green) compared to their actual frequency response obtained by phase canceling the corresponding low pass filter (in salmon). In theory, both curves should be matching *:</p>
+
+<p><a href="/assets/posts/1-frequency-splitter/frequency-responses-c2dd377b0364e85371c5046a343e5b7da03f61bacc946575dd52380db7f8c42e.gif">
+  <img src="/assets/posts/1-frequency-splitter/frequency-responses-c2dd377b0364e85371c5046a343e5b7da03f61bacc946575dd52380db7f8c42e.gif" alt="Frequency Responses" class="zooming" width="90%" data-rjs="/assets/posts/1-frequency-splitter/frequency-responses-c2dd377b0364e85371c5046a343e5b7da03f61bacc946575dd52380db7f8c42e.gif" data-zooming-width="1200" data-zooming-height="692" />
+</a></p>
+
+<p>* FabFilter’s Zero Latency mode was used when capturing these graphs. In this mode, filters are approximated to maximize efficiency (no latency), which means the resulting frequency response won’t always match its analog reference perfectly. If this is important to you, the Natural Phase mode can be used instead, at the cost of latency.</p>
+
+<p>Note that a popular Max for Live device called <a href="https://www.maxforlive.com/library/device/3341/invisible-band-splitter">Invisible Band Splitter</a> doesn’t suffer from the same issue. It uses hardcoded 6 dB / octave slopes, which results in a perfect filter inversion (as you can see in the GIF above). This unique property is exclusive to first-order low-pass and high-pass filters (single-pole) such as the ones used in this device, making them a viable alternative to using linear phase filters (discussed in the next section). However, the resulting 6 dB / octave slope is very low and doesn’t allow any sort of precise splitting (especially in the lower frequencies). So try to avoid this device as well if you want properly isolated bands with minimal overlap.</p>
+
+<h2 id="the-almost-perfect-frequency-splitter">The almost perfect frequency splitter</h2>
+
+<p>To make the phase cancellation trick work as expected, we would need an EQ that doesn’t change the signal’s phase. It is known as a <em>linear phase</em> EQ, and several VST plugins currently on the market support this feature (FabFilter Pro-Q 3, DMG EQuality, etc.). If we refer to the figures above, we can see the linear phase version results in an almost null cancellation, meaning no additional frequencies are being introduced by the process. One would think that we could maybe implement the standard Linkwitz-Riley frequency splitter using linear phase filters without any phase cancellation trick, but there are a few drawbacks to keep in mind when using linear phase filters.</p>
+
+<p>First, it causes pre-ringing, which is some sort of backward echo that softens the transients. Since this is not the point of this post, I won’t delve into much more details (Google is your friend), but keep in mind that more aggressive filters (high slope, high Q, high latency) in the lower end of the spectrum tend to cause more pre-ringing. However, pre-ringing is usually heard when boosting (e.g. bell shape) and less when cutting (crossover). So for our use case, the impact of pre-ringing is usually minimal.</p>
+
+<p>Second, it may introduce some low-frequency imprecisions when used in a low enough crossover. FabFilter Pro-Q lets you choose different processing resolutions, which result in different linear phase filter delays. The greater the delay, the better the response in the low frequencies, at the cost of more pre-ringing. The lesser the delay, the worst the response in the low frequencies, at the benefit of less pre-ringing. Steeper filters will also result in greater imprecisions. To compensate, longer delays must usually be used when low-frequency precision is paramount.</p>
+
+<p>Finally, as you might have guessed, it introduces a noticeable delay. This might be fine for the final mastering stages but is often not viable in a live context where MIDI input is involved (low latency). That’s why it’s usually never used for individual track processing.</p>
+
+<p>So, the almost perfect frequency splitter should be implemented using the proposed phase cancellation technique, but with linear phase filters (to preserve phase). The phase cancellation trick will allow to cancel out pre-ringing as well as potential low-frequency imprecisions, and the usage of linear phase filters will prevent the introduction of unwanted frequencies when canceling (as discussed above). In the end, the additional delay will be the only price to pay for such a splitter.</p>
+
+<p>Dan Worrall also has a <a href="https://www.youtube.com/watch?v=951MnO8M1Qs">video</a> on the subject if you want to check that out.</p>
+
+<h2 id="final-considerations">Final considerations</h2>
+
+<p>No matter which technique is being used, there are some considerations we need to keep in mind that apply to all of them. In general, creating static frequency splitters like these may lead to phase issues when processing the bands with phase-altering effects. Since the effects are only applied to some bands and not all, the phase response of each band may become out-of-sync with the others, which may introduce unexpected results when combined back together. That’s why we can’t naively nest frequency splitters to generate more bands (as we’ve seen in <a href="#the-standard-frequency-splitter">The standard frequency splitter</a> section).</p>
+
+<p>Because of that, it’s generally recommended to use your ears or use effects that are phase agnostic. Sometimes, the difference is minimal, and other times it can be more obvious. Pro-MB and others work by using dynamic modes which only alter the phase response proportionally to the amount of gain difference, but this technique only works for their specific use case (multiband compression). Otherwise, we can treat the splitter as an effect itself and not care about any of this.</p>
+
+<p>All in all, I usually use this sort of trick for individual sound design / processing, rather than mixing and bus processing (main groups, master, etc.). I would advise not using it on punchy or low-frequency elements as well, such as the kick and the sub-bass. If you do, try to avoid using too low crossovers and make sure to use your ears.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>When implementing a frequency splitter, you should seek the following solutions (in order):</p>
+
+<ol>
+  <li><a href="#the-standard-frequency-splitter">The standard frequency splitter</a>
+    <ul>
+      <li>+ Flat amplitude response</li>
+      <li>+ Simple</li>
+      <li>+ Low latency</li>
+      <li>+ No phase cancellation tricks</li>
+      <li>+ Can be implemented using most EQs</li>
+      <li>- Altered phase response</li>
+    </ul>
+  </li>
+  <li><a href="#the-almost-perfect-frequency-splitter">The almost perfect frequency splitter</a>
+    <ul>
+      <li>+ Flat amplitude response</li>
+      <li>+ Flat phase response</li>
+      <li>+ Reconstructs the exact input signal back</li>
+      <li>- Cannot be implemented using most EQs</li>
+      <li>- More complicated</li>
+      <li>- Higher latency</li>
+    </ul>
+  </li>
+  <li><a href="#the-standard-frequency-splitter">The standard frequency splitter</a> using linear phase filters
+    <ul>
+      <li>+ Flat phase response</li>
+      <li>+ Simple</li>
+      <li>+ No phase cancellation tricks</li>
+      <li>- May introduce pre-ringing (colored crossovers)</li>
+      <li>- May introduce low-frequency imprecisions (colored crossovers)</li>
+      <li>- Cannot be implemented using most EQs</li>
+      <li>- Higher latency</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Here are the solutions you should avoid entirely:</p>
+
+<ol>
+  <li><a href="#the-naive-frequency-splitter">The naive frequency splitter</a>
+    <ul>
+      <li>+ Simple</li>
+      <li>- Colored crossovers</li>
+      <li>- Altered phase response</li>
+    </ul>
+  </li>
+  <li><a href="#the-phase-correct-frequency-splitter">The “phase correct” frequency splitter</a>
+    <ul>
+      <li>+ Reconstructs the exact input signal back</li>
+      <li>- Doesn’t work in isolation (i.e. individual bands)</li>
+      <li>- More complicated</li>
+    </ul>
+  </li>
+</ol>
+
+<p>As you can see, there’s not much to be gained from this clever phase cancellation trick. In practice, a standard Linkwitz-Riley frequency splitter is the way to go. It doesn’t involve any phase cancellation trick, it’s low latency and it works just fine. If you are working with phase-sensitive material, only then should you consider the phase cancellation trick (using linear phase filters exclusively) as an alternative.</p>
+
+<p>Note that this post will be frequently updated, and a series of YouTube videos are coming along the way. Stay tuned, and feel free to share and comment in the meantime.</p>
+
+<p><em>All the figures in this post have been made with <a href="https://www.desmos.com/calculator">Desmos</a> and captured with <a href="https://jpanneton.dev/gifsmos-v">GIFsmos V</a>.</em></p>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/intent/tweet?text=The+perfect+frequency+splitter+debunked%20-%20https://jpanneton.dev/posts/the-perfect-frequency-splitter-debunked%20by%20@jpanneton_dev" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://jpanneton.dev/posts/the-perfect-frequency-splitter-debunked" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script src="https://jpanneton.disqus.com/embed.js" async defer></script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer scrollappear">
+  <p>
+    © 2023 <a href="/about" title="About me">Jérémi Panneton</a> • All rights reserved • Powered by <a href="https://github.com/nielsenramon/chalk" rel="noreferrer noopener" target="_blank" title="Download Chalk">Chalk</a>
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script src="/assets/vendor-ec04f549bf06a348280d37d309c000e0374d58d6dc12c88480223cba94221c70.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-7f6285a866907f0bf3781791231be5c3276ac104f9b85b452adcf858920b683c.js" type="text/javascript"></script>
+<script src="/assets/player-50c5725213597ed99d7647f4cf8d8fb4e1288a9735916117b3ea814eead40f26.js" type="text/javascript"></script>
+
+
+  <script src="/assets/themetoggle-2934f028e2abc5bb2305b646cdea0448763dab7a9c7d614cef8fb5655c8b797a.js" type="text/javascript"></script>
+
+</body>
+</html>

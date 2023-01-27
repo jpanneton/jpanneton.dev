@@ -1,36 +1,257 @@
----
-layout: default
-title: "Homepage"
-description: "Audio, C++, and everything in between."
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Jérémi Panneton | Homepage</title>
+  <meta name="description" content="Audio, C++, and everything in between.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<ul class="article-list">
-  {% for post in paginator.posts %}
-    <li class="article-list-item {% if site.scrollappear_enabled %}scrollappear{% endif %}">
-      <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+  <meta property="og:title" content="Homepage">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jpanneton.dev/">
+  <meta property="og:description" content="Audio, C++, and everything in between.">
+  <meta property="og:site_name" content="Jérémi Panneton">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://jpanneton.dev/">
+  <meta name="twitter:title" content="Homepage">
+  <meta name="twitter:description" content="Audio, C++, and everything in between.">
+
+  
+    <meta property="og:image" content="https://jpanneton.dev/assets/thumbnail-c8d7917e98198c3ed8bdb488b79da90e101ba890db97e44d7da78cccf91a5674.png">
+    <meta name="twitter:image" content="https://jpanneton.dev/assets/thumbnail-c8d7917e98198c3ed8bdb488b79da90e101ba890db97e44d7da78cccf91a5674.png">
+  
+
+  <link href="https://jpanneton.dev/feed.xml" type="application/rss+xml" rel="alternate" title="Jérémi Panneton Last 10 blog posts" />
+
+  
+
+  
+
+    
+      <link rel="icon" type="image/x-icon" href="/assets/favicon-light-eaabc9e56e60c3d341670b4e93bb1935111dc6eebd15b6268b9e96c04121bc16.ico">
+      <link rel="apple-touch-icon" href="/assets/apple-touch-icon-light-e7abfbe2a61382bdd2d1356634b305fa4e4de31c450f03c8d8ca117658a433c0.png">
+      <link rel="stylesheet" type="text/css" title="light" id="light" href="/assets/light-615e945d8bab5cfdf624d9f42cfabe56a4495dbdabf0d07e2dc9b2b31284ef8b.css">
+      <link rel="stylesheet" type="text/css" title="dark" id="dark" href="/assets/dark-c5f38bd3509677b442a2f552a1e5804bde2701a008a64e5098587446dd3f4f45.css" disabled="true">
+    
+
+  
+
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQM88Y7P76"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CQM88Y7P76');
+    </script>
+  
+
+  
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [['$','$']],
+          processEscapes: true
+        }
+      });
+    </script>
+  
+
+  <script src="/assets/fouc-3215b14f5b11fc2cdac24588ef77b7fa42dd404d1921313b1c3081dd265f0d45.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav">
+  <a href="/" class="header-logo" title="Jérémi Panneton">Jérémi Panneton</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-f51ae3ae83afc34401fc09f4f3c353c9289ff6420d34043828bae94e812118a3.svg#icon-about" xlink:href="/assets/about-f51ae3ae83afc34401fc09f4f3c353c9289ff6420d34043828bae94e812118a3.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://soundcloud.com/voidkll" rel="noreferrer noopener" target="_blank" title="SoundCloud">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-soundcloud">
+  <use href="/assets/soundcloud-7650ad93c41223125c3bed3e34d91cb00b9732962ea16d7607c8cc7098eca0da.svg#icon-soundcloud" xlink:href="/assets/soundcloud-7650ad93c41223125c3bed3e34d91cb00b9732962ea16d7607c8cc7098eca0da.svg#icon-soundcloud"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.youtube.com/@jpanneton-dev" rel="noreferrer noopener" target="_blank" title="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-youtube">
+  <use href="/assets/youtube-1c334eb807e725c412484a46c7a2b8f69496e1805499acaa2251a740b9a1b047.svg#icon-youtube" xlink:href="/assets/youtube-1c334eb807e725c412484a46c7a2b8f69496e1805499acaa2251a740b9a1b047.svg#icon-youtube"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://twitter.com/jpanneton_dev" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-1d285c6a30cc4182f76d69858a8dbda629f732e35a18e2c11293f6f7d0f831bb.svg#icon-twitter" xlink:href="/assets/twitter-1d285c6a30cc4182f76d69858a8dbda629f732e35a18e2c11293f6f7d0f831bb.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/jpanneton" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-78a568ac200da8c6487d59b677fc0ba9fec0065a758fc11b3e8cce94c8d1002c.svg#icon-github" xlink:href="/assets/github-78a568ac200da8c6487d59b677fc0ba9fec0065a758fc11b3e8cce94c8d1002c.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/jeremipanneton" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-59840cca0989324dae181cacdf6e38d245e09703fd487bc9bc1afe03363f187a.svg#icon-linkedin" xlink:href="/assets/linkedin-59840cca0989324dae181cacdf6e38d245e09703fd487bc9bc1afe03363f187a.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-02182ec6142fc09f65b5d131af905f81cd458b23654bdbf8831cc094bcd3e4ca.svg#icon-rss" xlink:href="/assets/rss-02182ec6142fc09f65b5d131af905f81cd458b23654bdbf8831cc094bcd3e4ca.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a onclick="toggle()" title="Toggle Theme">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-theme">
+  <use href="/assets/theme-f33b7ac2214368989217af548680d4911172165e5ced5d9a68c349a04d234ef9.svg#icon-theme" xlink:href="/assets/theme-f33b7ac2214368989217af548680d4911172165e5ced5d9a68c349a04d234ef9.svg#icon-theme"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <ul class="header-tags">
+    
+    
+
+    
+      
+
+      
+      
+        <li><a href="/tag/audio">Audio</a></li>
+    
+  </ul>
+
+
+        <ul class="article-list">
+  
+    <li class="article-list-item scrollappear">
+      <a href="/posts/the-perfect-frequency-splitter-debunked" title="The perfect frequency splitter debunked">
         <h5>
-          {{ post.title }}
-          {% include svg-icon.html icon="arrow-right" %}
+          The perfect frequency splitter debunked
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-arrow-right">
+  <use href="/assets/arrow-right-8d716280033e89e811468a1588e06d999a0bf618bc3b00e1714499e0220aec31.svg#icon-arrow-right" xlink:href="/assets/arrow-right-8d716280033e89e811468a1588e06d999a0bf618bc3b00e1714499e0220aec31.svg#icon-arrow-right"></use>
+</svg>
+
         </h5>
       </a>
       <p>
-        {% if post.description %}
-          {{ post.description }}  
-        {% else %}
-          {{ post.excerpt }}
-        {% endif %}
+        
+          A quick dive in the world of frequency splitters.  
+        
       </p>
-      {% include article/info-footer.html post=post %}
+      <div class="article-list-footer">
+  <span class="article-list-date">
+    May 5, 2022
+  </span>
+  <span class="article-list-divider">-</span>
+  <span class="article-list-minutes">
+    
+    
+      18 minute read
+    
+  </span>
+  <span class="article-list-divider">-</span>
+  <div class="article-list-tags">
+    
+      
+      <a href="/tag/audio" title="See all posts with tag 'Audio'">Audio</a>
+    
+  </div>
+</div>
     </li>
-  {% endfor %}
-  {% if paginator.total_pages > 1 %}
-    <li class="article-pagination {% if site.settings.scrollappear_enabled %}scrollappear{% endif %}">
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="article-pagination-left">{% include svg-icon.html icon="arrow-left" %} Older posts</a>
-      {% endif %}
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="article-pagination-right">Newer posts {% include svg-icon.html icon="arrow-right" %}</a>
-      {% endif %}
-    </li>
-  {% endif %}
+  
+  
 </ul>
+
+        <footer class="footer scrollappear">
+  <p>
+    © 2023 <a href="/about" title="About me">Jérémi Panneton</a> • All rights reserved • Powered by <a href="https://github.com/nielsenramon/chalk" rel="noreferrer noopener" target="_blank" title="Download Chalk">Chalk</a>
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script src="/assets/vendor-ec04f549bf06a348280d37d309c000e0374d58d6dc12c88480223cba94221c70.js" type="text/javascript"></script>
+
+
+  <script src="/assets/webfonts-96493456d319d1bf419afdf8701552d4d486fee6afd304897d4fd81eb4e0cc0b.js" type="text/javascript"></script>
+
+
+
+  <script src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js" type="text/javascript"></script>
+
+
+<script src="/assets/application-7f6285a866907f0bf3781791231be5c3276ac104f9b85b452adcf858920b683c.js" type="text/javascript"></script>
+<script src="/assets/player-50c5725213597ed99d7647f4cf8d8fb4e1288a9735916117b3ea814eead40f26.js" type="text/javascript"></script>
+
+
+  <script src="/assets/themetoggle-2934f028e2abc5bb2305b646cdea0448763dab7a9c7d614cef8fb5655c8b797a.js" type="text/javascript"></script>
+
+</body>
+</html>
